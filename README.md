@@ -3,7 +3,6 @@
 
 # JAVA CLOUD DEVELOPMENT
 
-SISTEMAS UNI. JAVA CLOUD. MIÉRCOLES. de 8 am a 1 pm. Inicio: 27-ABRIL-2016.
 - Lugar: SistemasUNI
 - Horario: Miercoles de 8 a 13 Horas
 - Inicio: 27-ABR-2016
