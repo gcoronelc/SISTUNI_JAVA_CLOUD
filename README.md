@@ -5,7 +5,7 @@
 
 - Lugar: SistemasUNI
 - Horario: Miercoles de 8 a 13 Horas
-- Inicio: 04-MAY-2016
+- Inicio: 11-MAY-2016
 - Dirección: https://goo.gl/maps/98vwAt9NZMU2
 - Contenido: http://www.sistemasuni.edu.pe/dcursos/cjavadessolnube.html
 - Pagina: http://gcoronelc.github.io/SISTUNI_JAVA_CLOUD_001/
@@ -19,4 +19,4 @@
 
 # CLASE 01
 
-- Fecha: 04-MAY-2016
+- Fecha: 11-MAY-2016
