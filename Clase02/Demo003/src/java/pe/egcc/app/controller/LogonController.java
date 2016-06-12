@@ -1,53 +1,63 @@
+
 package pe.egcc.app.controller;
 
-import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import pe.egcc.app.domain.Empleado;
 import pe.egcc.app.service.LogonService;
 
+/**
+ *
+ * @author Gustavo Coronel
+ */
+@ManagedBean
+@SessionScoped
+public class LogonController {
 
-@WebServlet({ "/LogonIngreso", "/LogonSalir" })
-public class LogonController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+  private String usuario;
+  private String clave;
+  private Empleado empleado;
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = request.getServletPath();
-		if(path.equals("/LogonIngreso")){
-		  logonIngreso(request,response);
-		}
-	}
-
-	
-  private void logonIngreso(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    String destino;
-    try {
-      // Datos
-      String usuario = request.getParameter("usuario");
-      String clave = request.getParameter("clave");
-      // Proceso
-      LogonService service = new LogonService();
-      Empleado bean = service.validar(usuario, clave);
-      // Dato en sesion
-      HttpSession session = request.getSession();
-      session.setAttribute("usuario", bean);
-      // Salida
-      destino = "main.jsp";
-    } catch (Exception e) {
-      request.setAttribute("error", e.getMessage());
-      destino = "index.jsp";
-    }
-    // Forward
-    RequestDispatcher rd;
-    rd = request.getRequestDispatcher(destino);
-    rd.forward(request, response);
+  public String getUsuario() {
+    return usuario;
   }
 
+  public void setUsuario(String usuario) {
+    this.usuario = usuario;
+  }
+
+  public String getClave() {
+    return clave;
+  }
+
+  public void setClave(String clave) {
+    this.clave = clave;
+  }
+
+  public Empleado getEmpleado() {
+    return empleado;
+  }
+
+  public void setEmpleado(Empleado empleado) {
+    this.empleado = empleado;
+  }
+  
+  public String doLogon(){
+    String destino;
+    try {
+      LogonService service = new LogonService();
+      empleado = service.validar(usuario, clave);
+      destino = "main";
+    } catch (Exception e) {
+      FacesMessage msg;
+      msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, 
+              "Error en el proceso.", e.getMessage());
+      FacesContext.getCurrentInstance().addMessage(null, msg);
+      destino = "index";
+    }
+    return destino;
+  }
+  
 }

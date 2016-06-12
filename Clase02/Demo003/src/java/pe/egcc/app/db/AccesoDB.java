@@ -14,7 +14,7 @@ public class AccesoDB {
     try {
       // Datos Oracle
       String driver = "oracle.jdbc.OracleDriver";
-      String url = "jdbc:oracle:thin:@localhost:1521:XE";
+      String url = "jdbc:oracle:thin:@:1521:XE";
       String user = "eureka";
       String pass = "admin";
       // Cargar el driver a memoria

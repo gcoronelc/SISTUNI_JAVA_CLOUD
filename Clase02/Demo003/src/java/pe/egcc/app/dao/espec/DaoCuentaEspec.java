@@ -6,7 +6,7 @@ import java.util.Map;
 public interface DaoCuentaEspec {
 
   /**
-   * Registra el depósito en la base de datos.
+   * Registra el deposito en la base de datos.
    * 
    * @param cuenta
    * @param importe

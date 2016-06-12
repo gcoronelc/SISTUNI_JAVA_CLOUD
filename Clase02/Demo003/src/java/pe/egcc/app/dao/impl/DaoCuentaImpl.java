@@ -15,7 +15,7 @@ public class DaoCuentaImpl implements DaoCuentaEspec{
   public void procDeposito(String cuenta, double importe, String codEmp) {
     Connection cn = null;
     try {
-      // La conexión
+      // La conexion
       cn = AccesoDB.getConnection();
       // Inicio de Tx
       cn.setAutoCommit(false);
@@ -72,7 +72,7 @@ public class DaoCuentaImpl implements DaoCuentaEspec{
         cn.rollback();
       } catch (Exception e2) {
       }
-      String msg  = "Error en el proceso registrar depósito.";
+      String msg  = "Error en el proceso registrar deposito.";
       if( e != null && e.getMessage() != null){
         msg += "\n" + e.getMessage();
       }
