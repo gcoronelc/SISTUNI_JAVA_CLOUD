@@ -1,0 +1,4 @@
+Please make note of these MySQL credentials again:
+  Root User: adminacqyFP8
+  Root Password: 6eQv9YwsY8YQ
+URL: https://app01-librosdigitales.rhcloud.com/phpmyadmin/
