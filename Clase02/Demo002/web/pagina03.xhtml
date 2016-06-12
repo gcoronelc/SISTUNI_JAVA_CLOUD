@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+  <h:head>
+    <title>Facelet Title</title>
+  </h:head>
+  <h:body>
+    <h:form>
+      <h1>COMBO - CASO 1</h1>
+      <h:outputLabel value="Producto"/>
+      <h:selectOneMenu value="#{pagina03Controller.opcion}">
+        <f:selectItem itemValue="0001" itemLabel="Coca Cola" />
+        <f:selectItem itemValue="0002" itemLabel="Inka Cola" />
+        <f:selectItem itemValue="0003" itemLabel="Pepsi Cola" />
+        <f:selectItem itemValue="0004" itemLabel="Cristal Cola" />
+      </h:selectOneMenu>
+      <h:commandButton value="Procesar"
+                       action="#{pagina03Controller.doProcesar()}"/>
+      <br/>
+      <br/>
+      <h:outputLabel value="Opcion elegida: ${pagina03Controller.copia}"/>
+    </h:form>
+  </h:body>
+</html>
+
