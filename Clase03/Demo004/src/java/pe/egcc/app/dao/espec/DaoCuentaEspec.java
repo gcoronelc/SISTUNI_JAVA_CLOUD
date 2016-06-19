@@ -18,5 +18,6 @@ public interface DaoCuentaEspec {
   
   List<Map<String, ?>> conMovimientos(String cuenta);
   
+  List<String> getSoloCuentas();
   
 }

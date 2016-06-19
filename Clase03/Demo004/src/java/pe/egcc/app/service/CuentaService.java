@@ -27,4 +27,7 @@ public class CuentaService {
     return daoCuenta.conMovimientos(cuenta);
   }
 
+  public List<String> getSoloCuentas(){
+    return daoCuenta.getSoloCuentas();
+  }
 }

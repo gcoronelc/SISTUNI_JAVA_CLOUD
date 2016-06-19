@@ -14,11 +14,14 @@
       <ui:define name="content">
         <h:form>
           
-          <h2>CONSULTAR CUENTA</h2>
+          <h2>CONSULTAR MOVIMIENTOS</h2>
           
           <p:panelGrid columns="3">
             
+            <p:outputLabel value="Sucursal:" />
             <p:outputLabel value="Cuenta:" />
+            <p:spacer />
+            
             <p:inputText value="#{conCuentaController.cuenta}"/>
             
             

@@ -11,7 +11,7 @@ import pe.egcc.app.dao.espec.MapperResultSet;
 import pe.egcc.app.db.AccesoDB;
 import pe.egcc.app.domain.Empleado;
 
-public class DaoEmpleado implements DaoCrudEmpleado, MapperResultSet<Empleado> {
+public class DaoEmpleadoImpl implements DaoCrudEmpleado, MapperResultSet<Empleado> {
 
   @Override
   public void insertar(Empleado bean) {

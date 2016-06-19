@@ -1,7 +1,7 @@
 package pe.egcc.app.service;
 
 import pe.egcc.app.dao.espec.DaoCrudEmpleado;
-import pe.egcc.app.dao.impl.DaoEmpleado;
+import pe.egcc.app.dao.impl.DaoEmpleadoImpl;
 import pe.egcc.app.domain.Empleado;
 
 public class LogonService {
@@ -12,7 +12,7 @@ public class LogonService {
       throw new RuntimeException("Datos son incorrectos.");
     }
     DaoCrudEmpleado daoEmpleado;
-    daoEmpleado = new DaoEmpleado();
+    daoEmpleado = new DaoEmpleadoImpl();
     bean = daoEmpleado.validar(usuario, clave);
     if(bean == null){
       throw new RuntimeException("Datos son incorrectos.");

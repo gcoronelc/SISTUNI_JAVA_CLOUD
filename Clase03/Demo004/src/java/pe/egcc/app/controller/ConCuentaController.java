@@ -1,6 +1,8 @@
 package pe.egcc.app.controller;
 
+import java.util.List;
 import java.util.Map;
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -17,7 +19,21 @@ public class ConCuentaController {
 
   private String cuenta;
   private Map<String, Object> datos = null;
+  private List<String> listaCuentas;
 
+  @PostConstruct
+  public void initBean(){
+    try {
+      CuentaService service = new CuentaService();
+      listaCuentas = service.getSoloCuentas();
+    } catch (Exception e) {
+    }
+  }
+
+  public List<String> getListaCuentas() {
+    return listaCuentas;
+  }
+  
   public String getCuenta() {
     return cuenta;
   }

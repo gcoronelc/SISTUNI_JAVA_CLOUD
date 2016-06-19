@@ -19,8 +19,13 @@
           <p:panelGrid columns="3">
             
             <p:outputLabel value="Cuenta:" />
-            <p:inputText value="#{conCuentaController.cuenta}"/>
             
+            <p:selectOneMenu value="#{conCuentaController.cuenta}">
+              <f:selectItems value="#{conCuentaController.listaCuentas}"
+                             var="r" 
+                             itemLabel="#{r}"
+                             itemValue="#{r}"/>
+            </p:selectOneMenu>
             
             <p:commandButton value="Consultar"
                              action="#{conCuentaController.doProcesar()}"
