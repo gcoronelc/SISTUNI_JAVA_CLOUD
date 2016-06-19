@@ -30,4 +30,9 @@ public class CuentaService {
   public List<String> getSoloCuentas(){
     return daoCuenta.getSoloCuentas();
   }
+  
+  public List<String> getSoloCuentas(String sucursal){
+    return daoCuenta.getSoloCuentas(sucursal);
+  }
+  
 }

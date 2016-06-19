@@ -20,4 +20,6 @@ public interface DaoCuentaEspec {
   
   List<String> getSoloCuentas();
   
+  List<String> getSoloCuentas(String sucursal);
+  
 }

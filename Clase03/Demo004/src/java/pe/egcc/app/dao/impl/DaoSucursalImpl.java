@@ -29,7 +29,7 @@ public class DaoSucursalImpl implements DaoCrudSucursal, MapperResultSet<Sucursa
               + "(select distinct chr_sucucodigo from cuenta)";
       PreparedStatement pstm = cn.prepareStatement(sql);
       ResultSet rs = pstm.executeQuery();
-      if (rs.next()) {
+      while (rs.next()) {
         Sucursal bean = mapper(rs);
         lista.add(bean);
       }

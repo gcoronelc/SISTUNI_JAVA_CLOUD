@@ -194,4 +194,34 @@ public class DaoCuentaImpl implements DaoCuentaEspec {
     return lista;
   }
 
+  @Override
+  public List<String> getSoloCuentas(String sucursal) {
+    List<String> lista = new ArrayList<String>();
+    Connection cn = null;
+    try {
+      cn = AccesoDB.getConnection();
+      String sql = "SELECT CHR_CUENCODIGO CUENTA FROM CUENTA "
+              + "WHERE CHR_SUCUCODIGO = ?";
+      PreparedStatement pstm = cn.prepareStatement(sql);
+      pstm.setString(1, sucursal);
+      ResultSet rs = pstm.executeQuery();
+      while(rs.next()){
+        lista.add(rs.getString("cuenta"));
+      }
+      rs.close();
+      pstm.close();
+    } catch (Exception e) {
+      String msg = "Error en el acceso a la BD.";
+      if (e.getMessage() != null && !e.getMessage().isEmpty()) {
+        msg += " " + e.getMessage();
+      }
+      throw new RuntimeException(msg);
+    } finally {
+      try {
+        cn.close();
+      } catch (Exception e2) {
+      }
+    }
+    return lista;
+  }
 }
