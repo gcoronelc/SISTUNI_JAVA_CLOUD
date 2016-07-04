@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+  <body>
+
+    <ui:composition template="./plantilla/plantilla.xhtml">
+
+      <ui:define name="content">
+        <h:form>
+          
+          <p:growl id="growl" showDetail="true" sticky="true" />
+          
+          
+          <h1>PROCESAR DEPOSITO</h1>
+          <br/>
+          <p:panelGrid columns="2">
+            
+            <p:outputLabel value="Cuenta"/>
+            <p:inputText value="#{cuentaController.cuenta}"/>
+            
+            <p:outputLabel value="Importe"/>
+            <p:inputText value="#{cuentaController.importe}"/>
+            
+          </p:panelGrid>
+          
+          <p:commandButton value="Procesar"
+                           ajax="false"
+                           action="#{cuentaController.doDeposito()}"/>
+        </h:form>
+      </ui:define>
+
+    </ui:composition>
+
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">    
+
+    <body>
+        <ui:composition template="./plantilla/plantilla.xhtml">
+            <ui:define name="content">
+                
+                <h:form>
+                    <p:growl id="growl" showDetail="true" sticky="true" />
+                    <h2>Consulta de Estudiantes</h2>                   
+                    <p:panelGrid columns="2">
+                        <p:outputLabel value="DNI:" />
+                        <p:inputText value="#{estudianteController.dni}"/>
+                        <p:outputLabel value="Apellido Paterno:" />
+                        <p:inputText value="#{estudianteController.apellido}"/>
+                        <p:outputLabel value="Nombre:" />
+                        <p:inputText value="#{estudianteController.nombre}"/>
+                    </p:panelGrid>
+                    <br/>
+                    <p:commandButton value="Consultar" action="#{estudianteController.doProcesar()}" ajax="false"/>
+
+                    <c:if test="${estudianteController.datos != null}">
+                    <br/>
+                    <br/>
+ 
+                    <p:panelGrid columns="2" >                     
+                      <f:facet name="header">
+                        RESULTADO
+                      </f:facet>
+                        <p:outputLabel value="DNI:"/>
+                        <h:outputText value="#{estudianteController.datos.CHR_ESTUDNI}" />
+                        <p:outputLabel value="Apellido Paterno:"/>
+                        <h:outputText value="#{estudianteController.datos.VCH_ESTUPATERNO}" />
+                        <p:outputLabel value="Apellido Materno:"/>
+                        <h:outputText value="#{estudianteController.datos.VCH_ESTUMATERNO}" />
+                        <p:outputLabel value="Nombre:"/>
+                        <h:outputText value="#{estudianteController.datos.VCH_ESTUNOMBRE}" />
+                        <p:outputLabel value="Fecha de Nacimiento:"/>
+                        <h:outputText value="#{estudianteController.datos.DTT_ESTUNACIMIENTO}" />
+                        <p:outputLabel value="Distrito:"/>
+                        <h:outputText value="#{estudianteController.datos.VCH_ESTUDISTRITO}" />
+                        <p:outputLabel value="DNI Apoderado:"/>
+                        <h:outputText value="#{estudianteController.datos.CHR_APODNI}" />
+                    </p:panelGrid>
+                    </c:if>    
+                </h:form>
+                
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Acceso al Sistema</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:growl id="growl" showDetail="true" sticky="true" />
+            <div style="width: 500px" align="center" >
+                <p:panel header="Datos del Usuario" style="background-color: #fcffe6">
+                    <img src="resources/img/school.jpg" width="460 px"/>
+                    <p:panelGrid columns="2" style="width: 460px;">
+                    <p:outputLabel value="Usuario:"/>
+                    <p:inputText id="usuario" value="#{logonController.usuario}"
+                                 required="true" requiredMessage="Dato es obligatorio."/>
+
+                    <p:outputLabel value="Clave:"/>
+                    <p:password id="clave" value="#{logonController.clave}"
+                                required="true" requiredMessage="Dato es obligatorio."/>
+                
+                </p:panelGrid>
+                <br/>
+                <h:commandButton value="Ingresar" action="#{logonController.doLogon()}" />
+            </p:panel>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+
